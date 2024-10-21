@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(DialogueManager.GetInstance().dialogueIsPlaying)
         {
+            rb.velocity = Vector2.zero;
             return;
         }
         // Apply movement to the Rigidbody2D in the FixedUpdate method

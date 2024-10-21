@@ -2,36 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class AutoStartDialogue : MonoBehaviour
 {
-    [Header("Visual Cue")]
-    [SerializeField] private GameObject visualCue;
+    [Header("Auto Start Object")]
     [SerializeField] private GameObject autoStart;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
 
     private bool playerInRange;
+    public bool isDialogueFinished;
 
     private void Awake()
     {
         playerInRange = false;
-        visualCue.SetActive(false);
     }
 
     private void Update()
     {
         if(playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
         {
-            visualCue.SetActive(true);
-            if(Input.GetKeyDown(KeyCode.E))
+            if(isDialogueFinished)
+            {
+                autoStart.SetActive(false);
+            }
+            if(autoStart.CompareTag("AutoStart") && !isDialogueFinished)
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
             }
-        }
-        else
-        {
-            visualCue.SetActive(false);
         }
     }
 
@@ -49,5 +47,10 @@ public class DialogueTrigger : MonoBehaviour
         {
             playerInRange = false;
         }
+    }
+
+    public void DialogueEnded()
+    {
+        isDialogueFinished = true;
     }
 }

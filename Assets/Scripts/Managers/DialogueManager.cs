@@ -16,7 +16,10 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    private AutoStartDialogue autoStartDialogue;
     private static DialogueManager instance;
+    private int currentChoiceIndex; // Track current choice index
+    private int totalChoices; // Track total number of choices
 
     private void Awake()
     {
@@ -34,6 +37,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
+        GameObject autoStartObject = GameObject.Find("AutoDialogue");
+        autoStartDialogue = autoStartObject.GetComponent<AutoStartDialogue>();
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -69,10 +74,10 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ExitDialogueMode()
     {
         yield return new WaitForSeconds(0.2f);
-
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
+        autoStartDialogue.DialogueEnded();
     }
 
     private void ContinueStory()
@@ -94,6 +99,9 @@ public class DialogueManager : MonoBehaviour
     {
         List<Choice> currentChoices = currentStory.currentChoices;
 
+        totalChoices = currentChoices.Count; // Update total number of choices
+        currentChoiceIndex = 0; // Reset to the first choice
+
         int index = 0;
         // enable and initialize the choices up to the amount of choices for this line of dialogue
         foreach(Choice choice in currentChoices)
@@ -108,14 +116,13 @@ public class DialogueManager : MonoBehaviour
             choices[i].gameObject.SetActive(false);
         }
 
-        StartCoroutine(SelectFirstChoice());
+        UpdateChoiceSelection();
     }
 
-    private IEnumerator SelectFirstChoice()
+    private void UpdateChoiceSelection()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(choices[0].gameObject);
+        EventSystem.current.SetSelectedGameObject(choices[currentChoiceIndex].gameObject);
     }
 
     public void MakeChoice(int choiceIndex)
