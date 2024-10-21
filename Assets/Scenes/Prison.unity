@@ -1637,9 +1637,9 @@ MonoBehaviour:
   dialoguePanel: {fileID: 990812650}
   dialogueText: {fileID: 573253486}
   choices:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 699021647}
+  - {fileID: 905053717}
+  - {fileID: 303802713}
 --- !u!4 &1399724736
 Transform:
   m_ObjectHideFlags: 0
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualCue: {fileID: 2145873657}
-  inkJSON: {fileID: 4900000, guid: 9f1053bbbdeb8674aa4a6337d33b407e, type: 3}
+  inkJSON: {fileID: 4900000, guid: 3d17bbffccc37f343aa2937476c9c174, type: 3}
 --- !u!1 &2100882416
 GameObject:
   m_ObjectHideFlags: 0
