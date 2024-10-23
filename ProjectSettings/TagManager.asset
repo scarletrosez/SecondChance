@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - AutoStart
+  - Waypoint
   layers:
   - Default
   - TransparentFX

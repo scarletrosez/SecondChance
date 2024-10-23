@@ -6,7 +6,6 @@ public class DialogueTrigger : MonoBehaviour
 {
     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
-    [SerializeField] private GameObject autoStart;
 
     [Header("Ink JSON")]
     [SerializeField] private TextAsset inkJSON;
