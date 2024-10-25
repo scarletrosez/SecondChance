@@ -7,20 +7,27 @@ public class PlayerTeleport : MonoBehaviour
     private GameObject currentTeleporter;
     private GameObject transitionObject;
     private Animator transitionAnim;
-    private PlayerMovement playerMovement;
+    public bool isTeleporting;
+    public bool isInRoom = false;
 
     private void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
         transitionObject = GameObject.Find("AreaTransition");
         transitionAnim = GameObject.Find("TransitionEffect").GetComponent<Animator>();
     }
 
     private void Update()
     {
-        if (currentTeleporter != null)
+        if (Input.GetKeyDown(KeyCode.W) && currentTeleporter != null)
         {
-            playerMovement.enabled = false;
+            if(isInRoom == true)
+            {
+                isInRoom = false;
+            }
+            else
+            {
+                isInRoom = true;
+            }
             NextLevel();
         }
     }
@@ -51,13 +58,15 @@ public class PlayerTeleport : MonoBehaviour
 
     private IEnumerator LoadLevel()
     {
+        isTeleporting = true;
         transitionObject.SetActive(true);
-        transitionAnim.SetTrigger("End");
+        transitionAnim.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         transform.position = currentTeleporter.GetComponent<Waypoint>().GetDestination().position;
-        transitionAnim.SetTrigger("Start");
-        transitionObject.SetActive(false);
+        transitionAnim.SetTrigger("End");
+        Debug.Log("Passed this line");
         yield return new WaitForSeconds(1);
-        playerMovement.enabled = true;
+        transitionObject.SetActive(false);
+        isTeleporting = false;
     }
 }
