@@ -85,12 +85,24 @@ public class DialogueManager : MonoBehaviour
         autoStartDialogue.DialogueEnded();
     }
 
+    private IEnumerator TypeDialogue(Story currentStory)
+    {
+        string currStory = currentStory.Continue();
+        dialogueText.text = "";
+        foreach(char letter in currStory.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(0.025f);
+        }
+    }
+
     private void ContinueStory()
     {
         if(currentStory.canContinue)
         {
+            StopAllCoroutines();
             // set text for the current dialogue line
-            dialogueText.text = currentStory.Continue();
+            StartCoroutine(TypeDialogue(currentStory));
             // display choices, if any, for this dialogue line
             DisplayChoices();
             // handle tags
