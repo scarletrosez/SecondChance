@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
+    [SerializeField] private Animator portraitAnimator;
     [Header("Choices UI")]
     [SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
@@ -134,7 +135,7 @@ public class DialogueManager : MonoBehaviour
                     displayNameText.text = tagValue;
                     break;
                 case PORTRAIT_TAG:
-                    Debug.Log("portrait="+tagValue);
+                    portraitAnimator.Play(tagValue);
                     break;
                 case LAYOUT_TAG:
                     Debug.Log("layout="+tagValue);

@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 47692641}
   - component: {fileID: 47692643}
   - component: {fileID: 47692642}
+  - component: {fileID: 47692644}
   m_Layer: 5
   m_Name: PortraitImage
   m_TagString: Untagged
@@ -198,6 +199,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47692640}
   m_CullTransparentMesh: 1
+--- !u!95 &47692644
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47692640}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 74315d8d03465574eaf5442cb220e4a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &53356402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3252,6 +3274,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 1152113523}
   dialogueText: {fileID: 1012439146}
   displayNameText: {fileID: 2109229072}
+  portraitAnimator: {fileID: 47692644}
   choices:
   - {fileID: 1393232529}
   - {fileID: 519687886}
@@ -3885,7 +3908,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1585902686, guid: 9ddc9bbfac98a67479f1c0bef879c0c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7426,6 +7449,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5902840057461410228, guid: adc282172e733664dba76a2ea3014a7e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6373854981310083612, guid: adc282172e733664dba76a2ea3014a7e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6
@@ -8664,7 +8691,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 896381090952706396, guid: 59b20e5755af1aa4c9feb894aef20f4f, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3966201609836804600, guid: 59b20e5755af1aa4c9feb894aef20f4f, type: 3}
       propertyPath: Destination
@@ -8984,7 +9011,7 @@ Transform:
   m_GameObject: {fileID: 8152324276072719751}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: -50, y: -2, z: 0}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
