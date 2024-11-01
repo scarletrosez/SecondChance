@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
     // Function to handle the Play button
     public void PlayGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     // Function to handle the Settings button
