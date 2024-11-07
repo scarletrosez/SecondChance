@@ -26,6 +26,8 @@ public class DialogueTrigger : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E))
             {
                 DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
+                visualCue.SetActive(false);
+                this.enabled = false;
             }
         }
         else

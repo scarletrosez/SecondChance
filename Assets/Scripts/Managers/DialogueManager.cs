@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour
     private TextMeshProUGUI[] choicesText;
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
+    private bool isTyping;
     private AutoStartDialogue autoStartDialogue;
     private static DialogueManager instance;
     private int currentChoiceIndex; // Track current choice index
@@ -63,7 +64,7 @@ public class DialogueManager : MonoBehaviour
         {
             return;
         }
-        if(Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if((Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) && !isTyping)
         {
             ContinueStory();
         }
@@ -88,6 +89,7 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TypeDialogue(Story currentStory)
     {
+        isTyping = true;
         string currStory = currentStory.Continue();
         dialogueText.text = "";
         foreach(char letter in currStory.ToCharArray())
@@ -95,6 +97,8 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(0.025f);
         }
+        yield return new WaitForSeconds(0.25f);
+        isTyping = false;
     }
 
     private void ContinueStory()
@@ -182,6 +186,9 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex)
     {
-        currentStory.ChooseChoiceIndex(choiceIndex);
+        if(!isTyping)
+        {
+            currentStory.ChooseChoiceIndex(choiceIndex);
+        }
     }
 }
