@@ -7,7 +7,7 @@
     Work, huh? Not many people come in here asking for that these days. You know how to fix electronics?
     
     *[Take answer honestly]
-        #speaker:Carlos #portrait:carlos_neutral
+        #speaker:Carlos #portrait:carlos_neutral#mental:+10 #reputation:+10
         Not really, but I can learn fast. I need a job, and I’m willing to do whatever it takes.
         #speaker:Anthony #portrait:anthony_neutral
         Well, honesty’s a good start. But this isn’t the kind of job you just ‘pick up’ overnight. It takes patience, skill, and a good eye for details.
@@ -19,7 +19,7 @@
         ->section2
         
     *[Lies]
-        #speaker:Carlos #portrait:carlos_neutral
+        #speaker:Carlos #portrait:carlos_neutral#mental:-15 #reputation:-10
         Yeah, I’ve done some repairs before. Mostly small stuff. Radios, TVs, that kind of thing.
         #speaker:Anthony #portrait:anthony_neutral
         Is that so? Well, I can always use an extra set of hands. But let me tell you upfront—if you don’t know your way around a circuit board, you’ll get caught pretty quick.
@@ -39,7 +39,7 @@
         #speaker:Anthony #portrait:anthony_neutral
         Well everyone deserves a second chance, you know, Show up later. Let’s see what you can do.
         #speaker:Carlos #portrait:carlos_neutral
-        (Self Thought) Now i need to figure out, which way i wanna go.
+        (Self Thought) Now i need to sleep, and figure out which way i wanna go.
         ->DONE
             
         

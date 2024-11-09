@@ -16,7 +16,7 @@
     *[Sure, but to be honest I'm rather nervous]
         #speaker:Anthony #portrait:anthony_neutral
         As long as you focus on me, I'm sure you'll be fine.
-        #speaker:Anthony #portrait:anthony_neutral
+        #speaker:Carlos #portrait:carlos_neutral
         Alright.
         #speaker:Carlos #portrait: carlos_neutral
         (And so, I slowly learn to repair gadgets...)
