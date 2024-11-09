@@ -21,6 +21,11 @@ public class AudioCollection : MonoBehaviour
     public AudioClip walk;
     public AudioClip doorSound;
 
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     public void ButtonPress()
     {
         SFX.PlayOneShot(EnterButtonClick);

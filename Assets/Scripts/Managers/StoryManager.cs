@@ -81,6 +81,16 @@ public class StoryManager : MonoBehaviour
                 transitionAnim.SetTrigger("Start");
                 yield return new WaitForSeconds(3);
                 SceneManager.LoadScene("Day" + currentDay);
+                if(currentDay == 0)
+                {
+                    Debug.Log("Play Inroom Audio");
+                    audioCollection.PlayBGM(audioCollection.inRoom);
+                }
+                else
+                {
+                    Debug.Log(currentDay);
+                    audioCollection.PlayBGM(audioCollection.inCasino);
+                }
                 UpdateTransitionObjects();
                 transitionAnim.SetTrigger("End");
                 yield return new WaitForSeconds(3);
@@ -95,6 +105,8 @@ public class StoryManager : MonoBehaviour
                 UpdateTransitionObjects();
                 transitionAnim.SetTrigger("End");
                 yield return new WaitForSeconds(3);
+                audioCollection.PlayBGM(audioCollection.inCasino);
+                Destroy(gameObject);
             }
         }
         else
