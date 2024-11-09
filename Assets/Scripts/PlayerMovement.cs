@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private float x;
     private PlayerTeleport playerTeleport;
+    private Animator anim;
 
     // Camera follow and zoom settings
     private float cameraLerpSpeed = 5f;
@@ -22,10 +23,18 @@ public class PlayerMovement : MonoBehaviour
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody2D>(); // Get the Rigidbody2D component
         playerTeleport = FindObjectOfType<PlayerTeleport>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
+        // Stop movement and animations if dialogue is playing
+        if (DialogueManager.GetInstance().dialogueIsPlaying)
+        {
+            moveDirection = Vector2.zero; // Reset movement
+            anim.SetBool("Walking", false); // Set animation to idle
+            return;
+        }
         // Get horizontal input (A/D or left/right arrow keys)
         x = Input.GetAxis("Horizontal");
 
@@ -35,11 +44,17 @@ public class PlayerMovement : MonoBehaviour
         // Flip the sprite based on the direction of movement
         if (x < 0)
         {
+            anim.SetBool("Walking", true);
             sr.flipX = true;
         }
         else if (x > 0)
         {
+            anim.SetBool("Walking", true);
             sr.flipX = false;
+        }
+        else if (x == 0)
+        {
+            anim.SetBool("Walking", false);
         }
 
         // Adjust the camera based on the player's position
@@ -59,13 +74,6 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Stop movement during dialogue or teleportation
-        if (DialogueManager.GetInstance().dialogueIsPlaying || playerTeleport.isTeleporting)
-        {
-            rb.velocity = Vector2.zero;
-            return;
-        }
-
         // Apply movement to the Rigidbody2D in the FixedUpdate method
         rb.velocity = new Vector2(moveDirection.x * moveSpeed, rb.velocity.y);
     }

@@ -27,6 +27,9 @@ public class DialogueManager : MonoBehaviour
     private const string SPEAKER_TAG = "speaker";
     private const string PORTRAIT_TAG = "portrait";
     private const string LAYOUT_TAG = "layout";
+    private const string REPUTATION_TAG = "reputation";
+    private const string MENTAL_TAG = "mental";
+    private const string FINANCE_TAG = "finance";
 
     private void Awake()
     {
@@ -85,6 +88,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
         autoStartDialogue.DialogueEnded();
+        StoryManager.Instance.DialogueCompleted();
     }
 
     private IEnumerator TypeDialogue(Story currentStory)
@@ -124,12 +128,14 @@ public class DialogueManager : MonoBehaviour
         // Loop through each tag and handle it accordingly
         foreach(string tag in currentTags)
         {
-            // parse the tag
+            // Split the tag into key and value
             string[] splitTag = tag.Split(':');
-            if(splitTag.Length != 2)
+            if (splitTag.Length != 2)
             {
                 Debug.LogError("Tag could not be appropriately parsed: " + tag);
+                continue; // Skip this tag if it's malformed
             }
+
             string tagKey = splitTag[0].Trim();
             string tagValue = splitTag[1].Trim();
 
@@ -143,6 +149,11 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case LAYOUT_TAG:
                     Debug.Log("layout="+tagValue);
+                    break;
+                case REPUTATION_TAG:
+                case MENTAL_TAG:
+                case FINANCE_TAG:
+                    StatusManager.Instance.UpdateStatus(tagKey, tagValue);
                     break;
                 default:
                     Debug.LogWarning("Tag came in but is not currently being handled: "+tag);

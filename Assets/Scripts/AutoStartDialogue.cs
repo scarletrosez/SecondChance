@@ -51,6 +51,9 @@ public class AutoStartDialogue : MonoBehaviour
 
     public void DialogueEnded()
     {
-        isDialogueFinished = true;
+        if(playerInRange)
+        {
+            isDialogueFinished = true;
+        }
     }
 }

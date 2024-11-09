@@ -20,7 +20,7 @@
         ->section2
         
     *[Make it Serious]
-        #speaker:Carlos #portrait:carlos_neutral
+        #speaker:Carlos #portrait:carlos_neutral #reputation:-1
         Actually, I’m looking for something serious. I need to get back on my feet, and fast. I need money, but... I want to do it right this time.
         #speaker:Oscar #portrait:oscar_neutral
         laughs heartily*, Right, huh? I might know a few ways you could make some quick cash. This bar’s always got something going on... people betting big, looking for thrills. You ever think about getting back in the game? You’d make more money than you ever would fixing electrical things at some shop, that’s for sure. just work at here then.
@@ -30,7 +30,7 @@
         #speaker:Carlos #portrait:carlos_neutral
         (self thought) Electrical Repair Shop, huh? Maybe that’s what I need right now. A fresh start… something honest.
         *[Ignore the offer with Jokes]
-            #speaker:Carlos #portrait:carlos_neutral
+            #speaker:Carlos #portrait:carlos_neutral #reputation:+1
             Come on, Oscar, you know me better than that. Fast cash sounds great until you wake up in a ditch somewhere, or worse, back in prison.
             I think I’ve had enough of that excitement for one lifetime.
             #speaker:Oscar #portrait:oscar_neutral
@@ -38,7 +38,7 @@
             ->DONE
             
         *[Ignore the offer Seriously]
-            #speaker:Carlos #portrait:carlos_neutral
+            #speaker:Carlos #portrait:carlos_neutral #mental:-1 #reputation:-1
             Look, Oscar, I get it. Fast cash, easy money—it’s tempting. But I can’t go back to that life. I’ve spent too much time behind bars, and I’ve got to do things right this time.
             #speaker:Oscar #portrait:oscar_neutral
             Alright, alright. Go ahead and remember i’m always here 24 hour, *chuckles*.

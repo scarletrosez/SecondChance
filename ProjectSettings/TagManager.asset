@@ -6,6 +6,7 @@ TagManager:
   tags:
   - AutoStart
   - Waypoint
+  - Audio
   layers:
   - Default
   - TransparentFX
