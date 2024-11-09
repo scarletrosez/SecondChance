@@ -19,6 +19,7 @@ public class AudioCollection : MonoBehaviour
     [Header("========== SFX ==========")]
     public AudioClip EnterButtonClick;
     public AudioClip walk;
+    public AudioClip doorSound;
 
     public void ButtonPress()
     {

@@ -1,27 +1,27 @@
 ->begin
 
 === begin
-    #speaker:Anthony #portrait:Anthony_neutral
-    Well your ready to start repairing?, there so much customer waiting
+    #speaker:Anthony #portrait:anthony_neutral
+    Well, well, well... so you decided? There'll be so much customers waiting in line. I could use some help. I would definitely reward you according to your workload.
     
-    *[I’m ready]
-        #speaker:Carlos #portrait:carlos_happy
-        I'm ready Anthony
-        #speaker:Anthony #portrait:Anthony_happy
-        Alright, repair carefully
-        
-        //minigame dulu
-        
-        #speaker:Anthony #portrait:Anthony_happy
+    *[Let's do it]
+        #speaker:Anthony #portrait:anthony_neutral
+        Alright, let me teach you the ropes, listen carefully...
+        #speaker:Carlos #portrait: carlos_neutral
+        (And so, I slowly learn to repair gadgets...)
+        #speaker:Anthony #portrait:anthony_neutral
         Good job Carlos, see you tomorrow.
-     
         ->DONE
         
-    *[Not yet]
-        #speaker:Carlos #portrait:carlos_neutral
-        Wait, i need to grab something really fast.
-        #speaker:Anthony #portrait:Anthony_neutral
+    *[Sure, but to be honest I'm rather nervous]
+        #speaker:Anthony #portrait:anthony_neutral
+        As long as you focus on me, I'm sure you'll be fine.
+        #speaker:Anthony #portrait:anthony_neutral
         Alright.
+        #speaker:Carlos #portrait: carlos_neutral
+        (And so, I slowly learn to repair gadgets...)
+        #speaker:Anthony #portrait:anthony_neutral
+        Good job Carlos, see you tomorrow.
         ->DONE
         
 

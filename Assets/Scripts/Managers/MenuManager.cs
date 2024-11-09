@@ -35,6 +35,11 @@ public class MenuManager : MonoBehaviour
         settingsCanvas.SetActive(true);
     }
 
+    public void CloseSettings()
+    {
+        settingsCanvas.SetActive(false);
+    }
+
     public void QuitGame()
     {
         StartCoroutine(TransitionAndQuit());
@@ -46,7 +51,8 @@ public class MenuManager : MonoBehaviour
         yield return StartCoroutine(FadeToBlack());
 
         // Load the new scene
-        SceneManager.LoadScene(1);
+        int day = PlayerPrefs.GetInt("SavedDay");
+        SceneManager.LoadScene(day+1);
 
         // Fade from black
         yield return StartCoroutine(FadeFromBlack());

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,9 +15,11 @@ public class StoryManager : MonoBehaviour
     public bool canSleep = false;
     private GameObject transitionObject;
     private Animator transitionAnim;
+    private AudioCollection audioCollection;
 
     private void Awake()
     {
+        audioCollection = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioCollection>();
         if (Instance == null)
         {
             Instance = this;
@@ -31,9 +34,19 @@ public class StoryManager : MonoBehaviour
     private void Start()
     {
         // Load the saved day progress, or start from Day 1 if no saved data exists
-        currentDay = PlayerPrefs.GetInt("SavedDay", 1); // Default to Day1 if no saved day is found
+        currentDay = PlayerPrefs.GetInt("SavedDay", 0); // Default to Day1 if no saved day is found
         transitionObject = GameObject.Find("AreaTransition");
         transitionAnim = GameObject.Find("TransitionEffect").GetComponent<Animator>();
+        if(currentDay == 0)
+        {
+            Debug.Log("Play Inroom Audio");
+            audioCollection.PlayBGM(audioCollection.inRoom);
+        }
+        else
+        {
+            Debug.Log(currentDay);
+            audioCollection.PlayBGM(audioCollection.inCasino);
+        }
         LoadDay();
     }
 
@@ -62,7 +75,7 @@ public class StoryManager : MonoBehaviour
         {
             currentDay++;
             SaveProgress();
-            if (currentDay <= 4) // Assuming Day1 to Day4 scenes
+            if (currentDay < 4) // Assuming Day1 to Day4 scenes
             {
                 transitionObject.SetActive(true);
                 transitionAnim.SetTrigger("Start");
@@ -75,7 +88,13 @@ public class StoryManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("Story completed.");
+                transitionObject.SetActive(true);
+                transitionAnim.SetTrigger("Start");
+                yield return new WaitForSeconds(3);
+                SceneManager.LoadScene("Epilogue");
+                UpdateTransitionObjects();
+                transitionAnim.SetTrigger("End");
+                yield return new WaitForSeconds(3);
             }
         }
         else

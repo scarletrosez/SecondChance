@@ -2,14 +2,16 @@
 
 === day4kamar
     #speaker:Carlos #portrait:carlos_angry
-    Four days out... And still hurts.
+    Three days out... And the pain of discrimination still hurts...
     #speaker:Carlos #portrait:carlos_angry
-    That kid moms must know what im doin before.
+    Most people must know what I've done before...
     #speaker:Carlos #portrait:carlos_angry
-    Why all of this happen to me?
+    Why... why did I do that crime in the past?...
+    #speaker:Carlos #portrait:carlos_angry
+    ...
     #speaker:Carlos #portrait:carlos_neutral
-    Anthony was a good person i want to work for him forever, but the pay was too small, wish i could make that place bigger
-    #speaker:Carlos #portrait:carlos_neutral
-    Well whatever I choose... that’s the path I’ll be on today. 
+    I'll go approach Anthony, I think that's the least I can do to repent for the work I tried with Oscar yesterday. I should really repent.
+    #speaker:Guide #portrait:guide_portrait
+    Seems like today Carlos decided to approach Anthony, go to the grand IT building to try and work with him~
 ->  DONE
 

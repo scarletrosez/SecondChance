@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
@@ -9,11 +10,13 @@ public class PlayerTeleport : MonoBehaviour
     private Animator transitionAnim;
     public bool isTeleporting;
     public bool isInRoom = false;
+    private AudioCollection audioCollection;
 
     private void Start()
     {
         transitionObject = GameObject.Find("AreaTransition");
         transitionAnim = GameObject.Find("TransitionEffect").GetComponent<Animator>();
+        audioCollection = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioCollection>();
     }
 
     private void Update()
@@ -58,6 +61,7 @@ public class PlayerTeleport : MonoBehaviour
 
     private IEnumerator LoadLevel()
     {
+        audioCollection.PlaySFX(audioCollection.doorSound);
         isTeleporting = true;
         transitionObject.SetActive(true);
         transitionAnim.SetTrigger("Start");

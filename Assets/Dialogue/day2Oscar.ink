@@ -35,6 +35,12 @@
             I think I’ve had enough of that excitement for one lifetime.
             #speaker:Oscar #portrait:oscar_neutral
             Alright, alright, Mr. Wise Guy. Go ahead and remember i’m always here 24 hour, *chuckles*.
+            #speaker:Guide #portrait:guide_portrait
+            Now since you finished with Oscar, why don't you try approaching that grand repair shop not far off?
+            #speaker:Guide #portrait:guide_portrait
+            I heard that Anthony is a pretty good guy.
+            #speaker:Carlos #portrait:carlos_neutral
+            (Inside head) Yeah yeah I will go there...
             ->DONE
             
         *[Ignore the offer Seriously]
@@ -42,6 +48,12 @@
             Look, Oscar, I get it. Fast cash, easy money—it’s tempting. But I can’t go back to that life. I’ve spent too much time behind bars, and I’ve got to do things right this time.
             #speaker:Oscar #portrait:oscar_neutral
             Alright, alright. Go ahead and remember i’m always here 24 hour, *chuckles*.
+            #speaker:Guide #portrait:guide_portrait
+            Now since you finished with Oscar, why don't you try approaching that grand repair shop not far off?
+            #speaker:Guide #portrait:guide_portrait
+            I heard that Anthony is a pretty good guy.
+            #speaker:Carlos #portrait:carlos_neutral
+            (Inside head) Yeah yeah I will go there...
             ->DONE
             
     

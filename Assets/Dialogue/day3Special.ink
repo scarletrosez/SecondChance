@@ -17,7 +17,7 @@
         
     *[Ask about her parents :)]
         #speaker:Carlos #portrait:carlos_happy
-        Smiling slightly "Where are your parents, kid? Want me to help you find them?” (Oscar touch her)
+        Smiling slightly "Where are your parents, kid? Want me to help you find them?” (Carlos touch her)
         #speaker:girlMother #portrait:girlMother_angry
         Who are you?! I’m calling the police for touching my child!!
         #speaker:Carlos #portrait:carlos_panic
