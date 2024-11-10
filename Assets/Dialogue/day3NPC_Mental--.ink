@@ -1,8 +1,8 @@
 ->begin
 
 === begin
-    #speaker:npc1 #portrait:npc1_neutral
-    Careful your bag, looks like he want to rob again.
-    #speaker:npc2 #portrait:npc2_neutral
-    Aw.. shit, that’s Carlos Ozul, hurry up.
+    #speaker:Man A #portrait:manA_neutral
+    Becareful, your bag might be his next target.
+    #speaker:Man B #portrait:manB_neutral
+    Shhh, don't jinx me like that!
     ->DONE
