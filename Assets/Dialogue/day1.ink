@@ -7,7 +7,7 @@
     Yeah… I guess this is it.
     #speaker:Police #portrait:police_neutral
     Here. Your belongings. Try not to lose ‘em the moment you step out.
-    #speaker:Carlos #portrait:carlos_happy
+    #speaker:Carlos #portrait:carlos_neutral
     Thanks, I– 
     #speaker:Police #portrait:police_neutral
     Look, don’t waste my time with any sob stories or redemption speeches, alright? I’ve seen enough to know how this usually ends.
