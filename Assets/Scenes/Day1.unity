@@ -1386,7 +1386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2680489127818714085, guid: 208137eb1fcba804d9ca13ac8f63462f, type: 3}
       propertyPath: m_Name
-      value: AutoDialogue (1)
+      value: AutoDialogue2
       objectReference: {fileID: 0}
     - target: {fileID: 4986949904621692721, guid: 208137eb1fcba804d9ca13ac8f63462f, type: 3}
       propertyPath: inkJSON
@@ -3395,7 +3395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2680489127818714085, guid: 208137eb1fcba804d9ca13ac8f63462f, type: 3}
       propertyPath: m_Name
-      value: AutoDialogue
+      value: AutoDialogue1
       objectReference: {fileID: 0}
     - target: {fileID: 4986949904621692721, guid: 208137eb1fcba804d9ca13ac8f63462f, type: 3}
       propertyPath: inkJSON
@@ -4676,52 +4676,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1097156285}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &883782893
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 883782895}
-  - component: {fileID: 883782894}
-  m_Layer: 0
-  m_Name: StoryManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &883782894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883782893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74717f4bfb381334481760dcbb52a447, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentDay: 1
-  canSleep: 0
---- !u!4 &883782895
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883782893}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &922182653
@@ -12323,7 +12277,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 801228804}
   - {fileID: 178784974}
-  - {fileID: 883782895}
   - {fileID: 217894704}
   - {fileID: 387418758}
   - {fileID: 1438866479}

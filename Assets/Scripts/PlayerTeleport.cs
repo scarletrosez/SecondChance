@@ -64,6 +64,8 @@ public class PlayerTeleport : MonoBehaviour
         audioCollection.PlaySFX(audioCollection.doorSound);
         isTeleporting = true;
         transitionObject.SetActive(true);
+        StoryManager.Instance.transitionObject = transitionObject;
+        StoryManager.Instance.transitionAnim = transitionAnim;
         transitionAnim.SetTrigger("Start");
         yield return new WaitForSeconds(1);
         transform.position = currentTeleporter.GetComponent<Waypoint>().GetDestination().position;

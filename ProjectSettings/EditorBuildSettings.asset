@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Day2.unity
     guid: 3cfadcb5ddf75ee4d88cfea0f0cc777f
+  - enabled: 1
+    path: Assets/Scenes/Day3.unity
+    guid: 1bb4f5e7ccac97c498a3bea51d7830dd
+  - enabled: 1
+    path: Assets/Scenes/Epilogue.unity
+    guid: d7d972b7859fc7d478ddb48128b60e78
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 006f2a0db3c695e4f9d18b95e238cf43, type: 2}

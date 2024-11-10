@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     public bool dialogueIsPlaying { get; private set; }
     private bool isTyping;
     private AutoStartDialogue autoStartDialogue;
+    private AutoStartDialogue activeAutoDialogue; // Track the currently active AutoStartDialogue
     private static DialogueManager instance;
     private int currentChoiceIndex; // Track current choice index
     private int totalChoices; // Track total number of choices
@@ -47,8 +48,6 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        GameObject autoStartObject = GameObject.Find("AutoDialogue");
-        autoStartDialogue = autoStartObject.GetComponent<AutoStartDialogue>();
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
@@ -73,13 +72,15 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void EnterDialogueMode(TextAsset inkJSON)
+    public void EnterDialogueMode(TextAsset inkJSON, AutoStartDialogue autoDialogue = null)
     {
         currentStory = new Story(inkJSON.text);
         dialogueIsPlaying = true;
         dialoguePanel.SetActive(true);
+        activeAutoDialogue = autoDialogue; // Set the active AutoStartDialogue correctly
         ContinueStory();
     }
+
 
     private IEnumerator ExitDialogueMode()
     {
@@ -87,7 +88,11 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
         dialogueText.text = "";
-        autoStartDialogue.DialogueEnded();
+        if (activeAutoDialogue != null)
+        {
+            activeAutoDialogue.DialogueEnded(); // Inform AutoStartDialogue it’s finished
+            activeAutoDialogue = null; // Reset the active AutoStartDialogue
+        }
         StoryManager.Instance.DialogueCompleted();
     }
 
@@ -99,9 +104,9 @@ public class DialogueManager : MonoBehaviour
         foreach(char letter in currStory.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.025f);
+            yield return new WaitForSeconds(0.001f);
         }
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.001f);
         isTyping = false;
     }
 

@@ -13,30 +13,30 @@ public class StoryManager : MonoBehaviour
     private int totalDialoguesForDay;
     private int dialoguesCompleted = 0;
     public bool canSleep = false;
-    private GameObject transitionObject;
-    private Animator transitionAnim;
+    public GameObject transitionObject;
+    public Animator transitionAnim;
     private AudioCollection audioCollection;
 
     private void Awake()
     {
         audioCollection = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioCollection>();
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist across scenes
+            Destroy(gameObject); // Destroy duplicate
         }
         else
         {
-            Destroy(gameObject);
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
     }
 
     private void Start()
     {
-        // Load the saved day progress, or start from Day 1 if no saved data exists
-        currentDay = PlayerPrefs.GetInt("SavedDay", 0); // Default to Day1 if no saved day is found
         transitionObject = GameObject.Find("AreaTransition");
         transitionAnim = GameObject.Find("TransitionEffect").GetComponent<Animator>();
+        // Load the saved day progress, or start from Day 1 if no saved data exists
+        currentDay = PlayerPrefs.GetInt("SavedDay", 0); // Default to Day1 if no saved day is found
         if(currentDay == 0)
         {
             Debug.Log("Play Inroom Audio");
@@ -73,6 +73,7 @@ public class StoryManager : MonoBehaviour
         Debug.Log("Entered TrySleep");
         if (canSleep)
         {
+            Debug.Log("Current day : " + currentDay);
             currentDay++;
             SaveProgress();
             if (currentDay < 4) // Assuming Day1 to Day4 scenes
@@ -98,6 +99,7 @@ public class StoryManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("Destoying StoryManager");
                 transitionObject.SetActive(true);
                 transitionAnim.SetTrigger("Start");
                 yield return new WaitForSeconds(3);
@@ -124,7 +126,7 @@ public class StoryManager : MonoBehaviour
     private void SaveProgress()
     {
         PlayerPrefs.SetInt("SavedDay", currentDay); // Save the current day
-        PlayerPrefs.Save(); // Ensure the data is written to disk
+        // PlayerPrefs.Save(); // Ensure the data is written to disk
     }
 
 }

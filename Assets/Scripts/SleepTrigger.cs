@@ -4,6 +4,12 @@ public class SleepTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject saveIcon;
     private bool playerInRange;
+    // private StoryManager storyManager;
+
+    private void Start()
+    {
+        // storyManager = FindObjectOfType<StoryManager>();
+    }
 
     private void Update()
     {

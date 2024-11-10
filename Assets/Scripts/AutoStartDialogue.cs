@@ -20,18 +20,12 @@ public class AutoStartDialogue : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying)
+        if (playerInRange && !DialogueManager.GetInstance().dialogueIsPlaying && !isDialogueFinished)
         {
-            if(isDialogueFinished)
-            {
-                autoStart.SetActive(false);
-            }
-            if(autoStart.CompareTag("AutoStart") && !isDialogueFinished)
-            {
-                DialogueManager.GetInstance().EnterDialogueMode(inkJSON);
-            }
+            DialogueManager.GetInstance().EnterDialogueMode(inkJSON, this); // Pass this AutoStartDialogue as a parameter
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
@@ -51,9 +45,7 @@ public class AutoStartDialogue : MonoBehaviour
 
     public void DialogueEnded()
     {
-        if(playerInRange)
-        {
-            isDialogueFinished = true;
-        }
+        isDialogueFinished = true;
+        gameObject.SetActive(false); // Deactivate this AutoStartDialogue after completion
     }
 }
